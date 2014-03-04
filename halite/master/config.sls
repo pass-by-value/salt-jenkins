@@ -1,7 +1,7 @@
 include:
   - python.gitpython
 
-/etc/salt/master.d/halite.conf:
+/etc/salt/master:
   file.managed:
     - source: salt://halite/master/files/halite-master-config.conf
     - require:
@@ -12,7 +12,7 @@ include:
   file.managed:
     - source: salt://halite/master/files/gitfs.conf
     - require:
-      - file: /etc/salt/master.d/halite.conf
+      - file: /etc/salt/master
     - failhard: True
 
 
@@ -20,3 +20,4 @@ include:
   file.managed:
     - source: salt://halite/master/files/external_auth.conf
     - failhard: True
+

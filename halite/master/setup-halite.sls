@@ -12,6 +12,7 @@ include:
 {%- endif %}
   - curl
   - python.nose
+  - python.cherrypy
   - python.paste
   - python.bottle
   - python.webtest
