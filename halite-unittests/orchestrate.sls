@@ -13,6 +13,7 @@ https://github.com/saltstack/halite.git:
   git.latest:
     - rev: master
     - target: /root/halite
+    - tgt: halite_unittest_master
     - require:
       - pkg: git
     - failhard: True
@@ -20,12 +21,14 @@ https://github.com/saltstack/halite.git:
 install-nvm:
   cmd.run:
     - name: 'curl https://raw.github.com/creationix/nvm/master/install.sh | sh'
+    - tgt: halite_unittest_master
     - require:
       - pkg: curl
     - failhard: True
 
 install-js-halite:
   cmd.script:
+    - tgt: halite_unittest_master
     - source: salt://halite-unittests/files/install_node_npm.sh
     - cwd: /root/halite
 
